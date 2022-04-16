@@ -13,6 +13,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
+import org.springframework.data.rest.core.config.RepositoryRestConfiguration;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -47,7 +48,7 @@ public class ScolariteServiceApplication {
 		SpringApplication.run(ScolariteServiceApplication.class, args);
 	}
 	@Bean
-	CommandLineRunner start(StudentRepository studentRepository ) {
+	CommandLineRunner start(StudentRepository studentRepository , RepositoryRestConfiguration restConfiguration) {
 		return args -> {
 			studentRepository.save(new Student(null,"Jaures","jauresbeinjamin@gmail.com",new Date()));
 			studentRepository.save(new Student(null,"ive","ive@gmail.com",new Date()));
