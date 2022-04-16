@@ -53,7 +53,7 @@ public class ScolariteServiceApplication {
 			studentRepository.save(new Student(null,"ive","ive@gmail.com",new Date()));
 			studentRepository.save(new Student(null,"Hugo","hugo@gmail.com",new Date()));
 			studentRepository.save(new Student(null,"Audrey","audrey@gmail.com",new Date()));
-
+            studentRepository.findAll().forEach(System.out::println);
 		};
 	}
 
