@@ -50,8 +50,9 @@ public class ScolariteServiceApplication {
 	CommandLineRunner start(StudentRepository studentRepository ) {
 		return args -> {
 			studentRepository.save(new Student(null,"Jaures","jauresbeinjamin@gmail.com",new Date()));
-			studentRepository.save(new Student(null,"ive","jauresbeinjamin@gmail.com",new Date()));
-			studentRepository.save(new Student(null,"Hugo","jauresbeinjamin@gmail.com",new Date()));
+			studentRepository.save(new Student(null,"ive","ive@gmail.com",new Date()));
+			studentRepository.save(new Student(null,"Hugo","hugo@gmail.com",new Date()));
+			studentRepository.save(new Student(null,"Audrey","audrey@gmail.com",new Date()));
 
 		};
 	}
