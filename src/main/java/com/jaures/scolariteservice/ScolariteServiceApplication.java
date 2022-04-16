@@ -49,8 +49,10 @@ public class ScolariteServiceApplication {
 	@Bean
 	CommandLineRunner start(StudentRepository studentRepository ) {
 		return args -> {
-			studentRepository.save(new Student(null,"Jaures","jauresbeinjamin@gmail.com",mew Date()));
-			
+			studentRepository.save(new Student(null,"Jaures","jauresbeinjamin@gmail.com",new Date()));
+			studentRepository.save(new Student(null,"ive","jauresbeinjamin@gmail.com",new Date()));
+			studentRepository.save(new Student(null,"Hugo","jauresbeinjamin@gmail.com",new Date()));
+
 		};
 	}
 
