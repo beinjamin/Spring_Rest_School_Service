@@ -21,6 +21,7 @@ import org.springframework.data.rest.core.config.Projection;
 import org.springframework.data.rest.core.config.RepositoryRestConfiguration;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -68,6 +69,10 @@ class ScolariteRestController{
 	public Student getOne(@PathVariable(name="id") Long id){
 		return studentRepository.findById(id).get();
 		
+	}
+	@PostMapping("/students")
+	public Student save(Student student) {
+		return studentRepository.save(student);
 	}
 }
 
