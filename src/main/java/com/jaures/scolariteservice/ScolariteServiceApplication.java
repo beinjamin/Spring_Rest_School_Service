@@ -9,6 +9,8 @@ import javax.persistence.Id;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -25,6 +27,11 @@ class Student {
 	private String name;
 	private String email;
 	private Date birthDate;
+}
+
+@RepositoryRestResource
+interface StudentRepository extends JpaRepository<Student,Long>{
+	
 }
 
 
