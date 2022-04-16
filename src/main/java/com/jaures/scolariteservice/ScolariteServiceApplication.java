@@ -1,6 +1,7 @@
 package com.jaures.scolariteservice;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -12,6 +13,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.repository.query.Param;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 import org.springframework.data.rest.core.config.RepositoryRestConfiguration;
 
@@ -34,6 +36,7 @@ class Student {
 
 @RepositoryRestResource
 interface StudentRepository extends JpaRepository<Student,Long>{
+	public List<Student> findByNameContains(@Param(value="mc")String mc);
 	
 }
 
