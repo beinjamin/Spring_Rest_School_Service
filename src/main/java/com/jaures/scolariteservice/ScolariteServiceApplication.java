@@ -8,6 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -18,6 +19,10 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 import org.springframework.data.rest.core.annotation.RestResource;
 import org.springframework.data.rest.core.config.Projection;
 import org.springframework.data.rest.core.config.RepositoryRestConfiguration;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -49,8 +54,22 @@ interface StudentRepository extends JpaRepository<Student,Long>{
 	public List<Student> findByNameContains(@Param(value="mc")String mc);
 	
 }
-
-
+@RestController
+@RequestMapping("/api")
+class ScolariteRestController{
+	@Autowired
+	private StudentRepository studentRepository;
+	@GetMapping("/students")
+	public List<Student> students(){
+		return studentRepository.findAll();
+		
+	}
+	@GetMapping("/students/{id}")
+	public Student getOne(@PathVariable(name="id") Long id){
+		return studentRepository.findById(id).get();
+		
+	}
+}
 
 
 
