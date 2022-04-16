@@ -38,6 +38,8 @@ class Student {
 
 @Projection(name="p1",types = Student.class)
 interface StudentProjection{
+	public String getEmail();
+	public String getName();
 	
 }
 
