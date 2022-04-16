@@ -50,6 +50,7 @@ public class ScolariteServiceApplication {
 	@Bean
 	CommandLineRunner start(StudentRepository studentRepository , RepositoryRestConfiguration restConfiguration) {
 		return args -> {
+			restConfiguration.exposeIdsFor(Student.class);
 			studentRepository.save(new Student(null,"Jaures","jauresbeinjamin@gmail.com",new Date()));
 			studentRepository.save(new Student(null,"ive","ive@gmail.com",new Date()));
 			studentRepository.save(new Student(null,"Hugo","hugo@gmail.com",new Date()));
