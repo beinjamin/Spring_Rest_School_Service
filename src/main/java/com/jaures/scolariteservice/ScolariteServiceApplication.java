@@ -10,9 +10,15 @@ import javax.persistence.Id;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
+
 
 
 @Entity
+@Data @NoArgsConstructor @AllArgsConstructor @ToString
 class Student {
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
