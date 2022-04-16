@@ -15,6 +15,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
+import org.springframework.data.rest.core.annotation.RestResource;
 import org.springframework.data.rest.core.config.RepositoryRestConfiguration;
 
 import lombok.AllArgsConstructor;
@@ -36,6 +37,7 @@ class Student {
 
 @RepositoryRestResource
 interface StudentRepository extends JpaRepository<Student,Long>{
+	@RestResource(path ="/ByName")
 	public List<Student> findByNameContains(@Param(value="mc")String mc);
 	
 }
@@ -55,6 +57,14 @@ public class ScolariteServiceApplication {
 		return args -> {
 			restConfiguration.exposeIdsFor(Student.class);
 			studentRepository.save(new Student(null,"Jaures","jauresbeinjamin@gmail.com",new Date()));
+			studentRepository.save(new Student(null,"ive","ive@gmail.com",new Date()));
+			studentRepository.save(new Student(null,"Hugo","hugo@gmail.com",new Date()));
+			studentRepository.save(new Student(null,"Audrey","audrey@gmail.com",new Date()));
+			studentRepository.save(new Student(null,"Jaures","jauresbeinjamin@gmail.com",new Date()));
+			studentRepository.save(new Student(null,"ive","ive@gmail.com",new Date()));
+			studentRepository.save(new Student(null,"Hugo","hugo@gmail.com",new Date()));
+			studentRepository.save(new Student(null,"Audrey","audrey@gmail.com",new Date()));
+			studentRepository.save(new Student(null,"sebastien","jauresbeinjamin@gmail.com",new Date()));
 			studentRepository.save(new Student(null,"ive","ive@gmail.com",new Date()));
 			studentRepository.save(new Student(null,"Hugo","hugo@gmail.com",new Date()));
 			studentRepository.save(new Student(null,"Audrey","audrey@gmail.com",new Date()));
