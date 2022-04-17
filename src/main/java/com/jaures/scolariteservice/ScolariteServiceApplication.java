@@ -39,7 +39,7 @@ import lombok.ToString;
 
 
 @Entity
-@Data @NoArgsConstructor @AllArgsConstructor @ToString
+@Data @NoArgsConstructor @AllArgsConstructor 
 class Student {
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
@@ -138,7 +138,7 @@ public class ScolariteServiceApplication {
 			studentRepository.save(new Student(null,"ive","ive@gmail.com",new Date(),l4));
 			studentRepository.save(new Student(null,"Hugo","hugo@gmail.com",new Date(),l4));
 			studentRepository.save(new Student(null,"Audrey","audrey@gmail.com",new Date(),l2));
-            studentRepository.findAll().forEach(System.out::println);
+           // studentRepository.findAll().forEach(System.out::println);
 		};
 	}
 
