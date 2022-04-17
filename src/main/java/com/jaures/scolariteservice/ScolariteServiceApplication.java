@@ -19,6 +19,7 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 import org.springframework.data.rest.core.annotation.RestResource;
 import org.springframework.data.rest.core.config.Projection;
 import org.springframework.data.rest.core.config.RepositoryRestConfiguration;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -76,11 +77,17 @@ class ScolariteRestController{
 	public Student save(@RequestBody Student student) {
 		return studentRepository.save(student);
 	}
-	@PutMapping("/studentsss")
+	@PutMapping("/students/{id}")
 	public Student update(@PathVariable(name="id") Long id, @RequestBody Student student){
 		
 	student.setId(id);
 		return studentRepository.save(student);
+	}
+	@DeleteMapping("/students/{id}")
+	public void delete(@PathVariable(name="id") Long id){
+		
+	
+    studentRepository.deleteById(id);
 	}
 }
 
