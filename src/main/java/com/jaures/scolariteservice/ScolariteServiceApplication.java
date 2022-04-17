@@ -59,7 +59,10 @@ class Labotory{
 	@OneToMany(mappedBy = "labotory")
 	private Collection<Student> students;
 }
-
+@RepositoryRestResource
+interface LabotoryRepository extends JpaRepository<Labotory, Long>{
+	
+}
 @Projection(name="p1",types = Student.class)
 interface StudentProjection{
 	public String getEmail();
