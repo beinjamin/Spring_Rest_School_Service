@@ -1,5 +1,6 @@
 package com.jaures.scolariteservice;
 
+import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 
@@ -8,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -51,7 +53,7 @@ class Labotory{
 	private Long id;
 	private String name;
 	private String contact;
-	@OneToMany(mappedby =)
+	@OneToMany(mappedBy = "labotory")
 	private Collection<Student> students;
 }
 
