@@ -138,8 +138,10 @@ public class ScolariteServiceApplication {
 			studentRepository.save(new Student(null,"ive","ive@gmail.com",new Date(),l4));
 			studentRepository.save(new Student(null,"Hugo","hugo@gmail.com",new Date(),l4));
 			studentRepository.save(new Student(null,"Audrey","audrey@gmail.com",new Date(),l2));
-           // studentRepository.findAll().forEach(System.out::println);
-		};
+            studentRepository.findAll().forEach(st->{
+            	System.out.println(st.getName());
+            	});
+            };
 	}
 
 }
