@@ -117,21 +117,27 @@ public class ScolariteServiceApplication {
 		SpringApplication.run(ScolariteServiceApplication.class, args);
 	}
 	@Bean
-	CommandLineRunner start(StudentRepository studentRepository , RepositoryRestConfiguration restConfiguration) {
+	CommandLineRunner start(StudentRepository studentRepository , RepositoryRestConfiguration restConfiguration,
+			LabotoryRepository labotoryRepository) {
 		return args -> {
 			restConfiguration.exposeIdsFor(Student.class);
-			studentRepository.save(new Student(null,"Jaures","jauresbeinjamin@gmail.com",new Date()));
-			studentRepository.save(new Student(null,"ive","ive@gmail.com",new Date()));
-			studentRepository.save(new Student(null,"Hugo","hugo@gmail.com",new Date()));
-			studentRepository.save(new Student(null,"Audrey","audrey@gmail.com",new Date()));
-			studentRepository.save(new Student(null,"Jaures","jauresbeinjamin@gmail.com",new Date()));
-			studentRepository.save(new Student(null,"ive","ive@gmail.com",new Date()));
-			studentRepository.save(new Student(null,"Hugo","hugo@gmail.com",new Date()));
-			studentRepository.save(new Student(null,"Audrey","audrey@gmail.com",new Date()));
-			studentRepository.save(new Student(null,"sebastien","jauresbeinjamin@gmail.com",new Date()));
-			studentRepository.save(new Student(null,"ive","ive@gmail.com",new Date()));
-			studentRepository.save(new Student(null,"Hugo","hugo@gmail.com",new Date()));
-			studentRepository.save(new Student(null,"Audrey","audrey@gmail.com",new Date()));
+			Labotory l1=labotoryRepository.save(new Labotory(null,"Informatique","contact@gmail.com",null));
+			Labotory l2=labotoryRepository.save(new Labotory(null,"Chimie","contact@gmail.com",null));
+			Labotory l3=labotoryRepository.save(new Labotory(null,"Mathematique","contact@gmail.com",null));
+			Labotory l4=labotoryRepository.save(new Labotory(null,"Physique","contact@gmail.com",null));
+
+			studentRepository.save(new Student(null,"Jaures","jauresbeinjamin@gmail.com",new Date(),l1));
+			studentRepository.save(new Student(null,"ive","ive@gmail.com",new Date(),l2));
+			studentRepository.save(new Student(null,"Hugo","hugo@gmail.com",new Date(),l3));
+			studentRepository.save(new Student(null,"Audrey","audrey@gmail.com",new Date(),l4));
+			studentRepository.save(new Student(null,"Jaures","jauresbeinjamin@gmail.com",new Date(),l1));
+			studentRepository.save(new Student(null,"ive","ive@gmail.com",new Date(),l2));
+			studentRepository.save(new Student(null,"Hugo","hugo@gmail.com",new Date(),l3));
+			studentRepository.save(new Student(null,"Audrey","audrey@gmail.com",new Date(),l1));
+			studentRepository.save(new Student(null,"sebastien","jauresbeinjamin@gmail.com",new Date(),l4));
+			studentRepository.save(new Student(null,"ive","ive@gmail.com",new Date(),l4));
+			studentRepository.save(new Student(null,"Hugo","hugo@gmail.com",new Date(),l4));
+			studentRepository.save(new Student(null,"Audrey","audrey@gmail.com",new Date(),l2));
             studentRepository.findAll().forEach(System.out::println);
 		};
 	}
