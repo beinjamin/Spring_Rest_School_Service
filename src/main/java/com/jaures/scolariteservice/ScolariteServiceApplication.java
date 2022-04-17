@@ -44,6 +44,11 @@ class Student {
 	private String email;
 	private Date birthDate;
 }
+class Labotory{
+	private Long id;
+	private String name;
+	private String contact;
+}
 
 @Projection(name="p1",types = Student.class)
 interface StudentProjection{
