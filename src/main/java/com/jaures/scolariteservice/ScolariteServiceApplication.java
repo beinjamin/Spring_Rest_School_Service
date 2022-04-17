@@ -51,6 +51,8 @@ class Labotory{
 	private Long id;
 	private String name;
 	private String contact;
+	@OneToMany(mappedby =)
+	private Collection<Student> students;
 }
 
 @Projection(name="p1",types = Student.class)
