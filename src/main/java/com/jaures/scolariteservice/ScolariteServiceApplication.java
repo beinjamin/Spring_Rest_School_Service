@@ -43,6 +43,7 @@ class Student {
 	private String name;
 	private String email;
 	private Date birthDate;
+	private Labotory labotory;
 }
 class Labotory{
 	private Long id;
