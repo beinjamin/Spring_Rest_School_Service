@@ -91,7 +91,7 @@ class ScolariteRestController{
 		return studentRepository.findById(id).get();
 		
 	}
-	@PostMapping("/studentsss")
+	@PostMapping("/students")
 	public Student save(@RequestBody Student student) {
 		return studentRepository.save(student);
 	}
